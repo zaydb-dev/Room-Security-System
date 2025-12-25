@@ -22,7 +22,7 @@ TO_EMAIL_ADDRESS = os.getenv("TO_EMAIL_ADDRESS")
 
 if not all([ALERT_SENDER_EMAIL, EMAIL_APP_PASSWORD, TO_EMAIL_ADDRESS]):
     print("FATAL ERROR: Email credentials have not been loaded")
-    print("Please set ALERT_SENDER_EMAIL, ALERT_SENDER_EMAIL and TO_EMAIL_ADDRESS in your shell environment")
+    print("Please set ALERT_SENDER_EMAIL, EMAIL_APP_PASSOWRD and TO_EMAIL_ADDRESS in your shell environment")
     exit()
 
 #Initializing pir variable 
@@ -48,7 +48,8 @@ def image_capture():
     ret, frame = cam.read() 
 
     if ret:
-        cv2.imwrite(INTRUDER_PHOTO_PATH, frame)
+        full_path = os.path.join(INTRUDER_PHOTO_PATH, "intruder.jpg")
+        cv2.imwrite(full_path, frame)
         print('Image saved as intruder.jpg')
     else: 
         print('Error: could not read frame')
@@ -64,7 +65,7 @@ def format_email():
 
 def send_intruder_email(email, sender, password): 
     #Attaching image to email   
-    image_path = INTRUDER_PHOTO_PATH
+    image_path = full_path
     mime_type, _ = mimetypes.guess_type(image_path)
     mime_type, mime_subtype = mime_type.split('/')
     with open(image_path, 'rb') as img_file:
