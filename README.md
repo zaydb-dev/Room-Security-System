@@ -45,12 +45,12 @@ A Python based room security system that uses a PIR sensor, a camera and a Raspb
   -To protect credentials, thus project uses Environment Variables rather than hard coding passwords into the script.<br>
     1. Enable 2FA on your Gmail account and generate a 16 character App Password (tutorials for this are widely available online)<br>
     2. In the same directory as the script, create a file named ".env" with the following plain text:<br>
-    ```export ALERT_SENDER_EMAIL="your-email@gmail.com"```<br>
-    ```export EMAIL_APP_PASSWORD="xxxx xxxx xxxx xxxx"```<br>
-    ```export TO_EMAIL_ADDRESS="destination@gmail.com"```<br>
+    ```ALERT_SENDER_EMAIL="your-email@gmail.com"```<br>
+    ```EMAIL_APP_PASSWORD="xxxx xxxx xxxx xxxx"```<br>
+    ```TO_EMAIL_ADDRESS="destination@gmail.com"```<br>
     3. You can also set your alarm sound and where the intruder images will be stored in the same .env file:<br>
-    ```export ALARM_SOUND_PATH="insert sound file path here"```<br>
-    ```export INTRUDER_PHOTO_PATH="inster intruder photo folder path here"```<br>
+    ```ALARM_SOUND_PATH="insert sound file path here"```<br>
+    ```INTRUDER_PHOTO_PATH="inster intruder photo folder path here"```<br>
 ### EXECUTION:<br>
   -Once you've done all of the above, you should be ready to go! Launch the security system:<br>
   ```python3 room_security_system.py```<br>
