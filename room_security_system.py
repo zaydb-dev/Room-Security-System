@@ -32,9 +32,6 @@ pir = MotionSensor(GPIO_PIN)
 mixer.init()
 alarm = mixer.Sound(ALARM_SOUND_PATH)
 
-#Email setup
-msg = EmailMessage() 
-
 #Function setup:   
 
 def image_capture():
@@ -58,6 +55,7 @@ def image_capture():
     
 def format_email():
     body = "Motion detected in your room."
+    msg = EmailMessage() 
     msg.set_content(body)
     msg['From'] = ALERT_SENDER_EMAIL
     msg['To'] = TO_EMAIL_ADDRESS
