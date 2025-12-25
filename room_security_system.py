@@ -65,7 +65,7 @@ def format_email():
 
 def send_intruder_email(email, sender, password): 
     #Attaching image to email   
-    image_path = full_path
+    image_path = os.path.join(INTRUDER_PHOTO_PATH, "intruder.jpg")
     mime_type, _ = mimetypes.guess_type(image_path)
     mime_type, mime_subtype = mime_type.split('/')
     with open(image_path, 'rb') as img_file:
