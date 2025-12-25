@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 import smtplib
 import mimetypes
 from email.message import EmailMessage
@@ -11,6 +12,7 @@ from gpiozero import MotionSensor
 from pygame import mixer
 
 #Configuration
+load_dotenv()
 GPIO_PIN = 18 #this is the pin the pir sensor is connected to
 ALARM_SOUND_PATH = os.getenv("ALARM_SOUND_PATH")
 INTRUDER_PHOTO_PATH = os.getenv("INTRUDER_PHOTO_PATH") 
@@ -53,9 +55,8 @@ def image_capture():
         
     cam.release() 
     
-def format_email():
+def format_email(msg):
     body = "Motion detected in your room."
-    msg = EmailMessage() 
     msg.set_content(body)
     msg['From'] = ALERT_SENDER_EMAIL
     msg['To'] = TO_EMAIL_ADDRESS
@@ -67,7 +68,7 @@ def send_intruder_email(email, sender, password):
     mime_type, _ = mimetypes.guess_type(image_path)
     mime_type, mime_subtype = mime_type.split('/')
     with open(image_path, 'rb') as img_file:
-        msg.add_attachment(img_file.read(), 
+        email.add_attachment(img_file.read(), 
                             maintype = mime_type, 
                             subtype = mime_subtype, 
                             filename=os.path.basename(image_path)) 
@@ -84,14 +85,15 @@ def send_intruder_email(email, sender, password):
         print(f"An error occured while sending email: {e}")
 
 def motion_function():
+    msg = EmailMessage()
     alarm.play()
     print("Motion Detected")
     
     image_capture()
-    format_email()
+    format_email(msg)
     send_intruder_email(msg, ALERT_SENDER_EMAIL, EMAIL_APP_PASSWORD) 
     
-    sleep(10)
+    sleep(5)
     
 def no_motion_function():
     print("Motion Stopped")
