@@ -55,7 +55,7 @@ A Python based room security system that uses a PIR sensor, a camera and a Raspb
     ```export INTRUDER_PHOTO_PATH="inster intruder photo folder path here"```<br>
 ### EXECUTION:<br>
   -Once you've done all of the above, you should be ready to go! Launch the security system:<br>
-  ```python3 Room_Security_System.py```<br>
+  ```python3 room_security_system.py```<br>
   -Detection: When the PIR sensor is triggered, the .mp3 alarm will play, and an image will be captured.<br>
   -Emailing: The script will automatically log into the SMTP server and send the image to your TO_EMAIL_ADDRESS.<br>
   -Shutdown: To stop the system, press Ctrl + C.<br>
