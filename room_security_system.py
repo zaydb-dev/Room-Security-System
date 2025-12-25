@@ -20,9 +20,9 @@ ALERT_SENDER_EMAIL = os.getenv("ALERT_SENDER_EMAIL")
 EMAIL_APP_PASSWORD = os.getenv("EMAIL_APP_PASSWORD")
 TO_EMAIL_ADDRESS = os.getenv("TO_EMAIL_ADDRESS")
 
-if not all([ALERT_SENDER_EMAIL, EMAIL_APP_PASSWORD, TO_EMAIL_ADDRESS]):
-    print("FATAL ERROR: Email credentials have not been loaded")
-    print("Please set ALERT_SENDER_EMAIL, EMAIL_APP_PASSOWRD and TO_EMAIL_ADDRESS in your shell environment")
+if not all([ALERT_SENDER_EMAIL, EMAIL_APP_PASSWORD, TO_EMAIL_ADDRESS, ALARM_SOUND_PATH, INTRUDER_PHOTO_PATH]):
+    print("FATAL ERROR: Environment variables have not been fully loaded.")
+    print("Please ensure ALERT_SENDER_EMAIL, EMAIL_APP_PASSWORD, TO_EMAIL_ADDRESS, ALARM_SOUND_PATH, and INTRUDER_PHOTO_PATH are set.")
     exit()
 
 #Initializing pir variable 
