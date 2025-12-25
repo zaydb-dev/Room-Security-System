@@ -51,7 +51,7 @@ A Python based room security system that uses a PIR sensor, a camera and a Raspb
     ```export EMAIL_APP_PASSWORD="xxxx xxxx xxxx xxxx"```<br>
     ```export TO_EMAIL_ADDRESS="destination@gmail.com"```<br>
     3. You can also set your alarm sound and where the intruder images will be stored by running the following in your terminal as well:<br>
-    ```export ALARM_SOUND_PATH="insert sound file path here"```<br>
+    ```export ALARM_SOUND_PATH="insert sound file path here (include filename "/intruder.jpg" at the end of the path)"```<br>
     ```export INTRUDER_PHOTO_PATH="inster intruder photo folder path here"```<br>
 ### EXECUTION:<br>
   -Once you've done all of the above, you should be ready to go! Launch the security system:<br>
