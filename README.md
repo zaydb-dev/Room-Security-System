@@ -42,7 +42,7 @@ A Python based room security system that uses a PIR sensor, a camera and a Raspb
   ```sudo apt install libopencv-dev python3-opencv python3-pygame -y```<br>   
   -Install the required Python libraries:<br>
   ```pip install gpiozero opencv-python pygame```<br>
-  -Create the folder where the script will save intruder images and record the filepath<br>
+  -Create the folder where the script will save intruder images and record the filepath, this will be used to set the INTRUDER_PHOTO_PATH environment variable later.<br>
 ### CONFIGURATION AND SECURITY:<br>
   -To protect credentials, thus project uses Environment Variables rather than hard coding passwords into the script.<br>
     1. Enable 2FA on your Gmail account and generate a 16 character App Password (tutorials for this are widely available online)<br>
