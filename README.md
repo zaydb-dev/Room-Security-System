@@ -39,18 +39,16 @@ A Python based room security system that uses a PIR sensor, a camera and a Raspb
   ```cd Room-Security-System```<br> 
   -Install OpenCV (image processing) and Pygame (audio playback):<br>
   ```sudo apt update```<br>
-  ```sudo apt install libopencv-dev python3-opencv python3-pygame -y```<br>   
-  -Install the required Python libraries:<br>
-  ```pip install gpiozero opencv-python pygame```<br>
+  ```sudo apt install libopencv-dev python3-opencv python3-pygame python3-gpiozero python3-dotenv -y```<br>   
   -Create the folder where the script will save intruder images and record the filepath, this will be used to set the INTRUDER_PHOTO_PATH environment variable later.<br>
 ### CONFIGURATION AND SECURITY:<br>
   -To protect credentials, thus project uses Environment Variables rather than hard coding passwords into the script.<br>
     1. Enable 2FA on your Gmail account and generate a 16 character App Password (tutorials for this are widely available online)<br>
-    2. Set shell variables by running the following commands in your terminal session before starting the script:<br>
+    2. In the same directory as the script, create a file named ".env" with the following plain text:<br>
     ```export ALERT_SENDER_EMAIL="your-email@gmail.com"```<br>
     ```export EMAIL_APP_PASSWORD="xxxx xxxx xxxx xxxx"```<br>
     ```export TO_EMAIL_ADDRESS="destination@gmail.com"```<br>
-    3. You can also set your alarm sound and where the intruder images will be stored by running the following in your terminal as well:<br>
+    3. You can also set your alarm sound and where the intruder images will be stored in the same .env file:<br>
     ```export ALARM_SOUND_PATH="insert sound file path here"```<br>
     ```export INTRUDER_PHOTO_PATH="inster intruder photo folder path here"```<br>
 ### EXECUTION:<br>
