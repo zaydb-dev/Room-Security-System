@@ -100,6 +100,12 @@ def no_motion_function():
     
 #Main script 
 if __name__ == "__main__":
+    print("Arming system...")
+
+    for x in range(1,11):
+        print(11 - x)
+        sleep(1)
+        
     pir.when_motion = motion_function
     pir.when_no_motion = no_motion_function
 
